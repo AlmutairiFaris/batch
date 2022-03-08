@@ -1,0 +1,13 @@
+ls=dir /B $1 
+ip=ipconfig $*
+display=echo My name is $1, my age is $2. & echo I love pizza.
+abs=call C:\Users\farsm\Commands\abs.bat $1
+sign=call C:\Users\farsm\Commands\sign.bat $1
+pyramid=call C:\Users\farsm\Commands\pyramid.bat $1 $2 0 0 10
+now=call C:\Users\farsm\Commands\now.bat
+macros=call C:\Users\farsm\Commands\macros.bat
+fact=call C:\Users\farsm\Commands\factorial.bat $1
+power=call C:\Users\farsm\Commands\power.bat $1 $2
+length=call C:\Users\farsm\Commands\length.bat $1
+toUpper=call C:\Users\farsm\Commands\touppercase.bat $1
+toLower=call C:\Users\farsm\Commands\tolowercase.bat $1
