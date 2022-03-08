@@ -1,3 +1,0 @@
-gathernetworkinfo.vbs 
-slmgr.vbs 
-winrm.vbs 

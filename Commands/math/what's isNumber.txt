@@ -1,8 +1,0 @@
-Returns the type of of number, and whether it is a number:
-  -1	not a number.
-   0	a number, not an integer, and not a double.
-   1	a number, an integer.
-   2	a number, a double.
-
-ISNUMBER [string]
-
