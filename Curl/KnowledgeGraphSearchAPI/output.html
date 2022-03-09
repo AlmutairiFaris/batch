@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8"/>
+	<title>Output</title>
+	<script src="result.js"></script>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+	<table class="output">
+		<tr><th>Index</th><th>image</th><th>type</th><th>name</th><th>description</th><th>articleBody</th><th>license</th></tr>
+	<table>
+</body>
+<script>
+var length = result.itemListElement.length
+
+for (let index = 0; index < length; index++) {
+    var type = result.itemListElement[index].result['@type']
+    var name = result.itemListElement[index].result.name
+	var description = ""
+	//detailedDescription
+	var articleBody = ""
+	var detailedDescriptionUrl = ""
+	var license = ""
+	//image
+	var contentUrl = ""
+	var imageUrl = ""
+	
+	if(result.itemListElement[index].result['description'] !== undefined){
+		description = result.itemListElement[index].result['description']
+	}
+	if(result.itemListElement[index].result['detailedDescription'] !== undefined){
+		articleBody = result.itemListElement[index].result['detailedDescription'].articleBody
+		detailedDescriptionUrl = result.itemListElement[index].result['detailedDescription'].url
+		name = '<a href="'+detailedDescriptionUrl+'" target="_blank">'+name+'</a>'
+		license = result.itemListElement[index].result['detailedDescription'].license
+		license = '<a href="'+license+'">license</a>'
+	}
+	//result.itemListElement[i].result['image'].url
+	//result.itemListElement[i].result['image'].contentUrl
+	if(result.itemListElement[index].result['image'] !== undefined){
+		contentUrl = result.itemListElement[index].result['image'].contentUrl
+		contentUrl = '<img src="'+contentUrl+'" alt="'+'nothing to see'+'" width="70">'
+		imageUrl = result.itemListElement[index].result['image'].url
+		contentUrl = '<a href="'+imageUrl+'" target="_blank">'+contentUrl+'</a>'
+	}
+	
+	
+	var x = document.getElementsByClassName("output")[0].insertRow()	
+	
+	//var clickableTitle = '<a href="'+link+'">'+title+'</a>'
+	
+	x.outerHTML = "<tr><td>"+index + "</td><td>" + contentUrl + "</td><td>" + type + "</td><td>" + name + "</td><td>" + description +"</td><td>" + articleBody +"</td><td>" + license + "</td></tr>"
+}
+</script>
+</html>
