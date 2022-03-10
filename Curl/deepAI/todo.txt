@@ -1,0 +1,7 @@
+Create a new batch file. Call it menu. or, run. or, else.
+This file should be the only file users need to run/execute.
+This file should enable users to set their API key, or reset it.
+This file should enable users to explore DeepAI processes, and select desired process from one interface.
+This file should have a menu that lists all DeepAI processes.
+From the menu the user should select a process.
+And, the user should be returned to the menu when the processe he selected completes it's job.
