@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8"/>
+	<title>Output</title>
+	<script src="output.js"></script>
+	<link rel="stylesheet" type="text/css" href="../styles.css">
+</head>
+<body>
+	<table class="output">
+		<tr><th>Index</th><th>Video ID</th><th>Channel</th><th>Title</th><th>Thumbnail</th></tr>
+	<table>
+</body>
+<script>
+var length = output.items.length
+for (let index = 0; index < length; index++) {
+	var videoId = output.items[index].id.videoId
+    var channelTitle = output.items[index].snippet.channelTitle
+    var title = output.items[index].snippet.title
+	var x = document.getElementsByClassName("output")[0].insertRow()	
+	
+	var url = "https://www.youtube.com/watch?v="+videoId
+	var thumbnailURL = "https://i.ytimg.com/vi/"+videoId+"/hqdefault.jpg?"
+	
+	var thumbnail = '<img src="'+thumbnailURL+'" alt="'+title+'" width="168">'
+	var clickableThumbnail = '<a href="'+url+'">'+thumbnail+'</a>'
+	
+	x.outerHTML = "<tr><td>"+index + "</td><td>" + videoId + "</td><td>" + channelTitle + "</td><td>"+title + "</td><td>"+ clickableThumbnail +"</td></tr>"
+}
+</script>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8"/>
+	<title>Output</title>
+	<script src="output.js"></script>
+	<link rel="stylesheet" type="text/css" href="../styles.css">
+</head>
+<body>
+	<table class="output">
+		<tr><th>Index</th><th>image</th><th>type</th><th>name</th><th>description</th><th>articleBody</th><th>license</th></tr>
+	<table>
+</body>
+<script>
+var length = output.itemListElement.length
+
+for (let index = 0; index < length; index++) {
+    var type = output.itemListElement[index].result['@type']
+    var name = output.itemListElement[index].result.name
+	var description = ""
+	//detailedDescription
+	var articleBody = ""
+	var detailedDescriptionUrl = ""
+	var license = ""
+	//image
+	var contentUrl = ""
+	var imageUrl = ""
+	
+	if(output.itemListElement[index].result['description'] !== undefined){
+		description = output.itemListElement[index].result['description']
+	}
+	if(output.itemListElement[index].result['detailedDescription'] !== undefined){
+		articleBody = output.itemListElement[index].result['detailedDescription'].articleBody
+		detailedDescriptionUrl = output.itemListElement[index].result['detailedDescription'].url
+		name = '<a href="'+detailedDescriptionUrl+'" target="_blank">'+name+'</a>'
+		license = output.itemListElement[index].result['detailedDescription'].license
+		license = '<a href="'+license+'">license</a>'
+	}
+	if(output.itemListElement[index].result['image'] !== undefined){
+		contentUrl = output.itemListElement[index].result['image'].contentUrl
+		contentUrl = '<img src="'+contentUrl+'" alt="'+'nothing to see'+'" width="70">'
+		imageUrl = output.itemListElement[index].result['image'].url
+		contentUrl = '<a href="'+imageUrl+'" target="_blank">'+contentUrl+'</a>'
+	}
+	
+	
+	var x = document.getElementsByClassName("output")[0].insertRow()	
+	
+	//var clickableTitle = '<a href="'+link+'">'+title+'</a>'
+	
+	x.outerHTML = "<tr><td>"+index + "</td><td>" + contentUrl + "</td><td>" + type + "</td><td>" + name + "</td><td>" + description +"</td><td>" + articleBody +"</td><td>" + license + "</td></tr>"
+}
+</script>
+</html>
