@@ -1,2 +1,0 @@
-sort search result by date.
-make queries to get latest news.
