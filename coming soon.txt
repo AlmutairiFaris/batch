@@ -1,0 +1,2 @@
+Batch Scripts to make the processes and services of "Keep It Tidy Charles" easy to use from Windows CLI
+"Keep It Tidy Charles"  -------->  https://ki.tc/
