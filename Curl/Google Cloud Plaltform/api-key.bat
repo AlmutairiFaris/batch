@@ -1,4 +1,4 @@
-:: To get your own API, go to:
+:: To get your own API key, go to:
 :: 	https://console.developers.google.com/
 ::      In the search bar, type the name of the API, and select it
 ::	enable the desired API
